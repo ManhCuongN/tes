@@ -1534,7 +1534,7 @@ o @keyframes bannar_come {
   z-index: 9999;
 }
 .message {
-  margin-top: 200px;
+  margin-top: -500px;
   display: none;
 }
 .message p {
@@ -1724,13 +1724,6 @@ o @keyframes bannar_come {
 }
 
 @media only screen and (max-width: 479px) {
-  .text-center {
-    display: flex;
-    justify-content: center;
-  }
-  .flowrino-btn {
-    text-align: center;
-  }
   .cake-cover {
     margin-top: 240px;
     z-index: 9999;
@@ -1755,5 +1748,18 @@ o @keyframes bannar_come {
     color: #bf4136;
     text-shadow: 5px 5px 5px #fff;
     display: none;
+  }
+
+  .message {
+    margin-top: 50px;
+  }
+  .message p {
+    font-family: "Signika", sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #c4515c;
+    text-shadow: 2px 2px 2px #fff;
+    display: none;
+    font-weight: bold;
   }
 }
