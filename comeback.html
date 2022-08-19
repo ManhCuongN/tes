@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PTTN</title>
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--  -->
+    <!-- Tiêu đề của trang -->
+    <meta name="description" content="Đoán xem có điều gì bất ngờ tại đây?" />
+    <!-- Description ngắn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  </head>
+  <body>
+
+
+
+     
+    <meta
+      property="og:image"
+      content="https://minhchuit.net/images/cham-vao-day.png"
+    />
+    <meta property="og:title" content="CHẠM VÀO ĐÂY" />
+    <!-- Tiêu đề của trang -->
+    <meta property="og:type" content="website" />
+    <meta name="author" content="NGUYEN MINH CHU" />
+    <link
+      rel="stylesheet"
+      href="https://minhchuit.net/css/valentine.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://minhchuit.net/css/fontawesome-free-5.12.1-web/css/all.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+  </head>
+  <style>
+    
+    button {
+      border: none;
+      border-radius: 4px;
+      padding: 8px;
+      background: red;
+      color: #fff;
+      outline: none;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    button:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    span {
+      position: absolute;
+      top: 30%;
+      left: 25%;
+      text-align: center;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .move {
+      transform: translate(-200%, -200%);
+      transition: 0.01s;
+    }
+    .ico{
+      margin-left: -110px;
+      margin-top: 20px;
+    }
+    .title{
+      margin-top: -70px;
+    }
+    .btn {
+   background-color:green
+    }
+    .btn1 {
+   background-color:#CC00CC	
+    }
+/* Block */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 12px 48px;
+  border-radius: 50px;
+  cursor: pointer;
+  min-width: 120px;
+  transition: opacity 0.2s ease;
+}
+
+/* Modifier */
+.btn--size-l {
+  padding: 16px 56px;
+}
+
+.btn--size-s {
+  padding: 8px 32px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn + .btn {
+  margin-left: 16px;
+}
+
+.btn--success {
+  background-color: #71be34;
+   margin-top: 50px;
+   margin-right: 600px;
+}
+
+.btn--warn {
+  background-color: #ffb702;
+}
+
+.btn--danger {
+  background-color: #ff623d;
+  margin-top: 50px;
+   margin-left: -2500px;
+}
+
+.btn--disabled {
+  opacity: 0.5 !important;
+  cursor: default;
+}
+
+/* ======= Toast message ======== */
+
+#toast {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 999999;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 20px 0;
+  min-width: 400px;
+  max-width: 450px;
+  border-left: 4px solid;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+  transition: all linear 0.3s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 32px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.toast--success {
+  border-color: #47d864;
+}
+
+.toast--success .toast__icon {
+  color: #47d864;
+}
+
+.toast--info {
+  border-color: #2f86eb;
+}
+
+.toast--info .toast__icon {
+  color: #2f86eb;
+}
+
+.toast--warning {
+  border-color: #ffc021;
+}
+
+.toast--warning .toast__icon {
+  color: #ffc021;
+}
+
+.toast--error {
+  border-color: #ff623d;
+}
+
+.toast--error .toast__icon {
+  color: #ff623d;
+}
+
+.toast + .toast {
+  margin-top: 24px;
+}
+
+.toast__icon {
+  font-size: 24px;
+}
+
+.toast__icon,
+.toast__close {
+  padding: 0 16px;
+}
+
+.toast__body {
+  flex-grow: 1;
+}
+
+.toast__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.toast__msg {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.toast__close {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+
+  </style>
+  
+  <body>
+    <video id="myVideo" width="320" height="176">
+      <source src="troll.mp3" type="video/mp4">
+      <source src="mov_bbb.ogg" type="video/ogg">
+      Your browser does not support HTML5 video.
+    </video>
+    <div id="toast"></div>
+    <div class="bgoverlay">
+      <div class="container" id="container">
+        <span class="ico">
+          <span class="ico2"></span>
+          <span class="title" id="title" style="margin-top:-55px"
+            >Chạm Vào<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Đây Pà</span
+          >
+        </span>
+        <div class="endtext" style="margin-top:80px">
+          <span id="close" title="Restart"><i class="fa fa-times"></i></span>
+         
+          <h2>Tui không biết mở lời sao nữa pà.Tui sợ pà từ chối</h2> 
+          
+          <h4>Pà quay lại với tui nha</h4>
+          <h4>Quay lại để tôi còn đc chở pà ngắm hoa đêm 30 pà</h4>
+          <h1>Pà đồng ý làm người yêu tôi nha<i class="fas fa-heart"></i></h1>
+          <div id="toast"></div>
+
+          <div style="margin-left: 100px;"><div onclick="showSuccessToast();" class="btn btn--success">Đồng Ý</div>
+          
+               
+            <div onmouseover="showErrorToast();" class="btn btn--danger" id = "no-love">Không đồng ý</div>
+           
+           
+          </div>
+          
+          <script>
+           
+             var count = 0;
+            function showSuccessToast() {
+              var vid = document.getElementById("myVideo");
+    
+              toast({
+                title: "Thành công!",
+                message: "Yeah,Thương Pà nhất hhh",
+                type: "success",
+                duration: 5000
+              });
+              window.location.href = "https://www.facebook.com/profile.php?id=100019277535060";
+              vid.pause();
+            }
+          
+            function showErrorToast() {
+              var no_love = document.getElementById("no-love");
+      count++;
+      no_love.classList.toggle("move");
+      if (count == 1 || count == 3 || count == 5 || count == 10) {
+        toast({
+                title: "Thất bại!",
+                message: "Nút này tui thêm z thôi. Pà chọn ĐỒNG Ý đi",
+                type: "error",
+                duration: 5000
+              });
+      }
+      
+  
+              
+            }
+          </script>
+
+         
+          </div> 
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    
+    var title = document.getElementById("title");
+    var container = document.getElementById("container");
+    var closse= document.getElementById("close");
+ 
+  
+   closse.addEventListener("click", myFunctiona);
+    function myFunctiona() {
+      
+      container.classList.remove("open");
+    }
+    title.addEventListener("click", myFunction);
+    var vid = document.getElementById("myVideo");
+    function myFunction() {
+     
+      container.classList.add("open");
+      vid.play();
+    }
+    function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+  const main = document.getElementById("toast");
+  if (main) {
+    const toast = document.createElement("div");
+
+    // Auto remove toast
+    const autoRemoveId = setTimeout(function () {
+      main.removeChild(toast);
+    }, duration + 1000);
+
+    // Remove toast when clicked
+    toast.onclick = function (e) {
+      if (e.target.closest(".toast__close")) {
+        main.removeChild(toast);
+        clearTimeout(autoRemoveId);
+      }
+    };
+
+    const icons = {
+      success: "fas fa-check-circle",
+      info: "fas fa-info-circle",
+      warning: "fas fa-exclamation-circle",
+      error: "fas fa-exclamation-circle"
+    };
+    const icon = icons[type];
+    const delay = (duration / 1000).toFixed(2);
+
+    toast.classList.add("toast", `toast--${type}`);
+    toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+
+    toast.innerHTML = `
+                    <div class="toast__icon">
+                        <i class="${icon}"></i>
+                    </div>
+                    <div class="toast__body">
+                        <h3 class="toast__title">${title}</h3>
+                        <p class="toast__msg">${message}</p>
+                    </div>
+                    <div class="toast__close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                `;
+    main.appendChild(toast);
+  }
+}
+
+  //   var love = document.getElementById("love");
+  //   var no_love = document.getElementById("no-love");
+
+  //   love.addEventListener("click", lovesfunction);
+    
+  //   function lovesfunction() {
+  //       alert("Inbox cho mình biết nha");
+  //       window.location.href = "https://www.facebook.com/profile.php?id=100019277535060";
+     
+  //    }
+  //   no_love.addEventListener("mouseover", lovefunction);
+  //   var  count = 0;
+  //   function lovefunction() {
+     
+  //     no_love.classList.toggle("move");
+  //     count++;
+  //     console.log(count)
+  //     if(count == 5){
+  //       function showErrorToast() {
+  //   toast({
+  //     title: "Thất bại!",
+  //     message: "Có lỗi xảy ra, vui lòng liên hệ quản trị viên.",
+  //     type: "error",
+  //     duration: 5000,
+     
+  //   });
+  // }
+  //     }
+  //    }
+     
+     
+  </script>
+</html>
